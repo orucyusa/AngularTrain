@@ -10,13 +10,9 @@ import { Product } from './product.model';
 export class ProductComponent {
     model: ProductRepository = new ProductRepository();
 
-    onSubmit($event) {
-        $event.stopPropagation();
-        console.log('button was clicked');
-        console.log($event);
+    onKeyUp(email) {
+        //if($event.keyCode === 13) { console.log($event.target.value); }
+        console.log(email);
     }
-    
-    onDivClicked() {
-        console.log('div was clicked');
-    }
+
 }

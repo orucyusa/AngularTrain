@@ -1,5 +1,6 @@
-<div (click)="onDivClicked()" style="width: 500px; height:500px; background-color: red;">
-    <button name = "btn1" (click)="onSubmit($event)">Submit</button>
-    <button name = "btn1" (click)="onSubmit($event)">Submit</button>
-</div>
+<!-- <input (keyup)="onKeyUp($event)">      
+    www.keycode.info
 
+-->
+
+<input #email (keyup.enter)="onKeyUp(email.value)">
