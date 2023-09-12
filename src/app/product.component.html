@@ -1,21 +1,5 @@
-<div class="bg-primary text-white m-2 p-2">
-    There are {{model.getProducts().length}} products in here.
+<div (click)="onDivClicked()" style="width: 500px; height:500px; background-color: red;">
+    <button name = "btn1" (click)="onSubmit($event)">Submit</button>
+    <button name = "btn1" (click)="onSubmit($event)">Submit</button>
 </div>
 
-<div [class]="getClasses(1)">
-    katalogdaki ilk ürün {{model.getProductsById(1).name}}
-</div>
-
-<div [class]="getClasses(2)">
-    katalogdaki ikinci ürün {{model.getProductsById(2).name}}
-</div>
-
-<button class="btn btn-primary" [class.disabled]="disabled">Submit</button>
-
-<div class="m-2 p-2" [ngClass]="getClassMap(1)">
-    katalogdaki <span [style.color]="color">ilk ürün </span>  {{model.getProductsById(1).name}}
-</div>
-
-<div class="m-2 p-2" [ngClass]="getClassMap(2)">
-    katalogdaki <span [ngStyle]="getStyles(2)"> ikinci ürün </span> {{model.getProductsById(2).name}}
-</div>
