@@ -3,7 +3,7 @@
         <div class="col-md-6">
             <div class="m-5">
                 <div class="bg-info text-white p-2">
-                    Selected Product: {{ selectedProduct || '(None)' }}
+                    Selected Product: {{ selectedProduct ? selectedProduct.name : ''  || '(None)' }}
                 </div>
                 <table class="table table-sm table-bordered mt-2">
                     <thead>
@@ -17,9 +17,7 @@
                     </thead>
                     <tbody>
                             <tr *ngFor="let product of products" 
-                            (mouseover)="pName.value=product.name" 
-                            (mouseleave)="pName.value='(None)'"
-                            [class.bg-info]="pName.value == product.name"
+                            [class.bg-info]="getSelected(product)"
                             > 
                                 <td [class.bg-info]="pName.value == product.name"> {{ product.id }}</td>
                                 <td [class.bg-info]="pName.value == product.name"> <img src="/assets/img/{{ product.imageUrl }}" width="80"></td>
@@ -27,18 +25,33 @@
                                 <td [class.bg-info]="pName.value == product.name">{{ product.price }}</td>
                                 <td [class.bg-info]="pName.value == product.name">
                                     <button class="btn btn-danger btn-sm">Delete</button>
-                                    <button class="btn btn-primary btn-sm">Update</button>
+                                    <button (click)="editProduct(product)" class="btn btn-primary btn-sm ml-2">Edit</button>
                                 </td>
-                            </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
+                            </tr>                              
+                    </tbody>                                               
+                </table>                                                    
+            </div>                                                          
+        </div>  
         <div class="col-md-6">
             <div class="form-group">
                 <label>Product Name</label>
-                <input #pName (input)="selectedProduct = pName.value" type="text" class="form-control">
+                <input #pName [value]="selectedProduct ? selectedProduct.name : ''" (keyup.enter)="updateSelectedProduct('name', pName.value)" type="text" class="form-control">
             </div>
+            <div class="form-group">
+                <label>Price</label>
+                <input #pPrice [value]="selectedProduct ? selectedProduct.price : ''" (keyup.enter)="updateSelectedProduct('price', pPrice.value)" type="text" class="form-control">
+            </div>
+            <div class="form-group">
+                <label>ImageUrl</label>
+                <input #pImageUrl [value]="selectedProduct ? selectedProduct.imageUrl : ''" (keyup.enter)="updateSelectedProduct('imageUrl', pImageUrl.value)" type="text" class="form-control">
+            </div>
+            <div class="form-group">
+                <label>Name</label>
+                <textarea 
+                #pDescription [value]="selectedProduct ? selectedProduct.description : ''" (keyup.enter)="updateSelectedProduct('description', pDescription.value)" type="text" class="form-control">
+                </textarea>
+            </div>
+            <button class="btn btn-primary" (click)="saveChanges(pName.value, pDescription.value, pPrice.value, pImageUrl.value)">Save Changes</button>
         </div>
     </div>
 </div>
