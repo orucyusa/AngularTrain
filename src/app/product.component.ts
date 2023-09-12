@@ -3,16 +3,22 @@ import { ProductRepository } from "./repository.model";
 import { Product } from './product.model';
 @Component({
     selector: "app",
-    templateUrl: "product.component.html",
+    template: `
+                <input [(ngModel)] = "email" (keyup.enter) = "onKeyUp()" />
+                <br>
+                <span> {{email}} </span>
+    `,  
     styleUrls: ["product.component.css"]
 })
 
 export class ProductComponent {
     model: ProductRepository = new ProductRepository();
 
-    onKeyUp(email) {
+    email = "email@sadikturan.com";
+
+    onKeyUp() {
         //if($event.keyCode === 13) { console.log($event.target.value); }
-        console.log(email);
+        console.log(this.email);
     }
 
 }
