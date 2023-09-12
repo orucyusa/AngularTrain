@@ -13,9 +13,9 @@
 <button class="btn btn-primary" [class.disabled]="disabled">Submit</button>
 
 <div class="m-2 p-2" [ngClass]="getClassMap(1)">
-    katalogdaki ikinci ürün {{model.getProductsById(1).name}}
+    katalogdaki <span [style.color]="color">ilk ürün </span>  {{model.getProductsById(1).name}}
 </div>
 
 <div class="m-2 p-2" [ngClass]="getClassMap(2)">
-    katalogdaki ikinci ürün {{model.getProductsById(2).name}}
+    katalogdaki <span [ngStyle]="getStyles(2)"> ikinci ürün </span> {{model.getProductsById(2).name}}
 </div>
