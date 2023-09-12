@@ -4,21 +4,47 @@ import { Product } from './product.model';
 @Component({
     selector: "app",
     template: `
-                <input [(ngModel)] = "email" (keyup.enter) = "onKeyUp()" />
-                <br>
-                <span> {{email}} </span>
+                <h4> Lower-Upper-Title CasePipe </h4>
+
+                <p> {{ title }} </p>
+
+                <p> {{ title | lowercase }} </p>
+
+                <p> {{ title | uppercase }} </p>
+
+                <p> {{ title | titlecase }} </p>
+
+                <h4> Date Pipe </h4>
+
+                <p> {{ today }} </p>
+                <p> {{ today | date }} </p>
+                <p> {{ today | date: 'fullDate'}} </p>
+                <p> {{ today | date: 'shortTime' }} </p>
+                <p> {{ today | date: 'medium' }} </p>
+                <p> {{ today | date: 'h:mm:ss' }} </p>
+
+                <h4> Decimal Pipe </h4>
+                <p> {{ students }} </p>
+                <p> {{ students | number }} </p>
+                <p> {{ price | number: '1.1-1'}} </p> <!-- NOKTADAN SONRA Kİ KISIM ONDALIK KISMI TAMIMLIYOR. MİN MAX KAÇ KARAKTER OLACAĞI BELİRLENİYOR. -->
+
+                <h4> Currency Pipe </h4>
+
+                <p> {{ price | currency: 'EUR'}} </p>
+
+                <h4> Percent Pipe </h4>
+
+                <p> {{ completed | percent}} </p>
+                <p> {{ completed | percent: '2.2-2'}} </p>
     `,  
     styleUrls: ["product.component.css"]
 })
 
 export class ProductComponent {
-    model: ProductRepository = new ProductRepository();
-
-    email = "email@sadikturan.com";
-
-    onKeyUp() {
-        //if($event.keyCode === 13) { console.log($event.target.value); }
-        console.log(this.email);
-    }
+    today: number = Date.now();
+    title: string = 'Angular Kursu';
+    students: number = 21536;
+    price: number = 395.9756;
+    completed: number = 0.26;
 
 }
