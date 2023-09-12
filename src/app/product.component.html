@@ -1,6 +1,13 @@
-<ul class="list-group m-5"> 
-    <li *ngFor="let product of model.getProducts()" class="list-group-item">
-            {{product.name}} - {{product.id}}
-       <img src="assets/img/{{product.id}}.jpeg">
+<ul class="list-group" style="background-color: blue !important;"> 
+    <li *ngFor="let product of model.getProducts()" class="list-group-item" style="background-color: indigo !important;"> 
+        <div class="card" style="width: 20rem; center; margin: auto !important; background-color: chartreuse;">
+            <img src="assets/img/{{product.imageUrl}} " class="card-img-top" alt="...">
+            <div class="card-body" style="background-color: gold;">
+              <h5 class="card-title">Ürün Adı: {{product.name}}</h5>
+              <p class="card-text">Fiyatı: {{product.price}}</p>
+              <a href="#" class="btn btn-danger">Ürün açıklaması: {{product.description}}<</a>
+            </div>
+          </div>
     </li>
 </ul>
+
