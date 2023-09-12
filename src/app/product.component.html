@@ -1,11 +1,22 @@
-<div class="m-5">
-    <button class="btn btn-primary" (click)="addProduct(deneme)">Add Product</button>
+
+
+<ng-template 
+    [ngTemplateOutlet]="productList";
+    [ngTemplateOutletContext]="{products: model.getProducts() }">
+</ng-template>
+
+<ng-template 
+    [ngTemplateOutlet]="productList";
+    [ngTemplateOutletContext]="{products: model.getProducts()  }">
+</ng-template>
+
+
+<ng-template #productList let-products="products">
+    <div class="m-5">
         <ul class="list-group mt-2">
-            <li *ngFor="let product of model.getProducts();" class="list-group-item">
+            <li *ngFor="let product of products;" class="list-group-item">
                 {{product.name}}
-                <button class="btn btn-danger" (click)="deleteProduct(product)">Delete</button>
-                <button class="btn btn-warning" (click)="updateProduct(product, deneme)">Update</button>
             </li>
         </ul>
-        <input #deneme type="text" class="form-control" placeholder="Yeni Ürün Adı..." aria-label="Username" aria-describedby="basic-addon1">
-</div>
+    </div>
+</ng-template>
