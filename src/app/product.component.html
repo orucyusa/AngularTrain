@@ -1,28 +1,14 @@
-<!-- <input (keyup)="onKeyUp($event)">      
-    www.keycode.info
-
--->
-
-<div *ngIf="model.getProducts().length > 0; then productList else noProducts">
-    There are {{ model.getProducts().length }} products in the repositroy.
+<div class="bg-info m-2 p-2" [ngSwitch]="model.getProductCount()">
+    <span *ngSwitchCase="0">There are no products</span>
+    <span *ngSwitchCase="1">There are no products</span>
+    <span *ngSwitchCase="2">There are no products</span>
+    <span *ngSwitchDefault> There are many products</span>
 </div>
 
-<ng-template #productList>
-    <div class="bg-primary text-white m-2 p-2">
-    There are {{ model.getProducts().length }} products in the repositroy.
-    </div>
-</ng-template>
-
-<ng-template #noProducts>
-    <div class="bg-primary text-white m-2 p-2">
-        There are {{ model.getProducts().length }} products in the repositroy.
-    </div>
-</ng-template>
-
-<div  [hidden]="model.getProducts().length==0"class="bg-primary text-white m-2 p-2">
-    There are {{ model.getProducts().length }} products in the repositroy.
+<div class="bg-info m-2 p-2" [ngSwitch]="model.getProductsById(1).name">
+    <span *ngSwitchCase="productName"> Samsung S5</span>
+    <span *ngSwitchcCase="'Samsung S6'"> Samsung S6</span>
+    <span *ngSwitchCase="'Samsung S7'"> Samsung S7</span>
+    <span *ngSwitchDefalt>Other Product</span>
 </div>
 
-<div [hidden]="model.getProducts().length!=0" class="bg-primary text-white m-2 p-2">
-        There are {{ model.getProducts().length }} products in the repositroy.
-</div>

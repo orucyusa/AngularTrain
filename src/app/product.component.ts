@@ -10,4 +10,6 @@ import { Product } from './product.model';
 export class ProductComponent {
    model: ProductRepository = new ProductRepository();
 
+   productName: string = this.model.getProductsById(1).name;
+
 }
