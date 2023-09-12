@@ -3,13 +3,11 @@ import { ProductRepository } from "./repository.model";
 import { Product } from './product.model';
 @Component({
     selector: "app",
-    template: `
-        {{text | summary:5 }}
-    `,  
+    templateUrl: 'product.component.html',
     styleUrls: ["product.component.css"]
 })
 
 export class ProductComponent {
-    text = 'Lorem ipsum dolor, sit amet consectetur adipisicing elit.';
+   model: ProductRepository = new ProductRepository();
 
 }

@@ -3,4 +3,26 @@
 
 -->
 
-<input #email (keyup.enter)="onKeyUp(email.value)">
+<div *ngIf="model.getProducts().length > 0; then productList else noProducts">
+    There are {{ model.getProducts().length }} products in the repositroy.
+</div>
+
+<ng-template #productList>
+    <div class="bg-primary text-white m-2 p-2">
+    There are {{ model.getProducts().length }} products in the repositroy.
+    </div>
+</ng-template>
+
+<ng-template #noProducts>
+    <div class="bg-primary text-white m-2 p-2">
+        There are {{ model.getProducts().length }} products in the repositroy.
+    </div>
+</ng-template>
+
+<div  [hidden]="model.getProducts().length==0"class="bg-primary text-white m-2 p-2">
+    There are {{ model.getProducts().length }} products in the repositroy.
+</div>
+
+<div [hidden]="model.getProducts().length!=0" class="bg-primary text-white m-2 p-2">
+        There are {{ model.getProducts().length }} products in the repositroy.
+</div>
