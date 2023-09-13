@@ -11,13 +11,13 @@ export class ProductComponent {
 
    model: ProductRepository = new ProductRepository();
    
-   addProduct(deneme) {
-    this.model.addProduct(new Product(this.model.getProductCount() + 1, deneme.value, "iyi telefon", "1.jpeg",5000));
+   newProduct: Product = new Product();
+
+   get jsonProduct() {
+        return JSON.stringify(this.newProduct);
    }
-   deleteProduct(product){
-    this.model.deleteProduct(product);
-   }
-   updateProduct(product, deneme?) {
-    this.model.updateProduct(product, deneme);
+
+   addProduct(p: Product) {
+        console.log("New Product:"+ this.jsonProduct);
    }
 }
