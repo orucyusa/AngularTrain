@@ -8,14 +8,18 @@ import { Product } from '../product.model';
   styleUrls: ['admin-products.component.css']
 })
 export class AdminProductsComponent {
-  @ViewChild('pName') pName: ElementRef;
-
+  //pName: string;
   products;
+  pName: any;
+  pPrice: any;
+  pImageUrl: any;
+  pDescription: any;
   model: ProductRepository;
   selectedProduct: Product | null = null;
   constructor() {
     this.model = new ProductRepository();
     this.products = this.model.getProducts();
+  
   }
 
   getSelected(product: Product): boolean {
@@ -29,10 +33,19 @@ export class AdminProductsComponent {
     this.selectedProduct[propertyName] = newValue;
   }
 
-  saveChanges(name, description, price, imageUrl){
+  
+  /*saveChanges(name, description, price, imageUrl){
     this.updateSelectedProduct('description', description);            
     this.updateSelectedProduct('name', name);
     this.updateSelectedProduct('price', price);
+    this.updateSelectedProduct('imageUrl', imageUrl);
+  }*/
+  saveChanges(name, description, price, imageUrl){
+    console.log(name);
+    console.log(imageUrl);
+    this.updateSelectedProduct('name',name);
+    this.updateSelectedProduct('description', description);
+    this.updateSelectedProduct('price',price);
     this.updateSelectedProduct('imageUrl', imageUrl);
   }
 }
