@@ -17,6 +17,10 @@ export class ProductComponent {
         return JSON.stringify(this.newProduct);
    }
 
+   calis(name:any){
+    console.log(name.errors)
+   }
+
    addProduct(p: Product) {
         console.log("New Product:"+ this.jsonProduct);
    }
