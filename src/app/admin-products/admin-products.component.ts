@@ -32,14 +32,6 @@ export class AdminProductsComponent {
   updateSelectedProduct(propertyName: string, newValue: string): void {
     this.selectedProduct[propertyName] = newValue;
   }
-
-  
-  /*saveChanges(name, description, price, imageUrl){
-    this.updateSelectedProduct('description', description);            
-    this.updateSelectedProduct('name', name);
-    this.updateSelectedProduct('price', price);
-    this.updateSelectedProduct('imageUrl', imageUrl);
-  }*/
   saveChanges(name, description, price, imageUrl){
     console.log(name);
     console.log(imageUrl);
