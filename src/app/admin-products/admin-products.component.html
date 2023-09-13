@@ -33,23 +33,23 @@
         <div class="col-md-6" *ngIf="selectedProduct">
             <div class="form-group">
                 <label>Product Name</label>
-                <input #pName [(ngModel)]="selectedProduct.name" (keyup.enter)="updateSelectedProduct('name', pName.value)" type="text" class="form-control">
+                <input [(ngModel)]="selectedProduct.name" type="text" class="form-control">
             </div>
             <div class="form-group">
                 <label>Price</label>
-                <input #pPrice [(ngModel)]="selectedProduct.price"(keyup.enter)="updateSelectedProduct('price', pPrice.value)" type="text" class="form-control">
+                <input [(ngModel)]="selectedProduct.price" type="text" class="form-control">
             </div>
             <div class="form-group">
                 <label>ImageUrl</label>
-                <input #pImageUrl [(ngModel)]="selectedProduct.imageUrl" (keyup.enter)="updateSelectedProduct('imageUrl', pImageUrl.value)" type="text" class="form-control">
+                <input [(ngModel)]="selectedProduct.imageUrl" type="text" class="form-control">
             </div>
             <div class="form-group">
                 <label>Description</label>
                 <textarea 
-                #pDescription [(ngModel)]="selectedProduct.description" (keyup.enter)="updateSelectedProduct('description', pDescription.value)" type="text" class="form-control">
+                 [(ngModel)]="selectedProduct.description" type="text" class="form-control">
                 </textarea>
             </div>
-            <button class="btn btn-primary" (click)="saveChanges(pName.value, pDescription.value, pPrice.value, pImageUrl.value)">Save Changes</button>
+            <button class="btn btn-primary" (click)="saveChanges()">Save Changes</button>
         </div>
     </div>
 </div>

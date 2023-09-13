@@ -33,12 +33,17 @@ export class AdminProductsComponent {
     this.selectedProduct[propertyName] = newValue;
   }
   
-  saveChanges(name, description, price, imageUrl){
-    console.log(name);
-    console.log(imageUrl);
+  saveChanges(){
+    const p = this.model.getProductsById(this.selectedProduct.id);
+    p.name = this.selectedProduct.name;
+    p.description = this.selectedProduct.description;
+    p.price = this.selectedProduct.price;
+    p.imageUrl = this.selectedProduct.imageUrl;
+    this.selectedProduct = null;
+    /** 
     this.updateSelectedProduct('name',name);
     this.updateSelectedProduct('description', description);
     this.updateSelectedProduct('price',price);
-    this.updateSelectedProduct('imageUrl', imageUrl);
+    this.updateSelectedProduct('imageUrl', imageUrl);*/
   }
 }
